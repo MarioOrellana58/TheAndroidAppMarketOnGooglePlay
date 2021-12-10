@@ -1,12 +1,15 @@
 import streamlit as st 
 from PIL import Image 
 import dataProcessing as dp
+import os
 
 st.markdown("""## 1. Google Play Store apps and reviews
 Mobile apps are everywhere. They are easy to create and can be lucrative. Because of these two factors, more and more apps are being developed. In this notebook, we will do a comprehensive analysis of the Android app market by comparing over ten thousand apps in Google Play across different categories. We'll look for insights in the data to devise strategies to drive growth and retention.""")
 
 #https://assets.datacamp.com/production/project_619/img/google_play_store.png
-img=Image.open('resources/google_play_store.png')
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname,'resources/google_play_store.png')
+img=Image.open(filename)
 st.image(img)
 
 st.markdown("""

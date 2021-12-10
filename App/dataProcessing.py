@@ -1,9 +1,12 @@
 # Read in dataset
 import pandas as pd
 import numpy as np
+import os 
 
+dirname = os.path.dirname(__file__)
+appsPath = os.path.join(dirname,"datasets/apps.csv")
 
-apps_with_duplicates = pd.read_csv("datasets/apps.csv")
+apps_with_duplicates = pd.read_csv(appsPath)
 
 # Drop duplicates from apps_with_duplicates
 apps = apps_with_duplicates.drop_duplicates()
@@ -38,8 +41,10 @@ for col in cols_to_clean:
 #drop na values for not important variables
 apps = apps.dropna()
 
+reviewsPath = os.path.join(dirname,"datasets/user_reviews.csv")
+
 # Load user_reviews.csv
-reviews_df = pd.read_csv("datasets/user_reviews.csv")
+reviews_df = pd.read_csv(reviewsPath)
 
 # Join the two dataframes
 merged_df = apps.merge(reviews_df, left_on='App', right_on='App')
